@@ -3,98 +3,587 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Family Command — The 15-Minute Family Care System</title>
-  <meta name="description" content="A simple 15-minute family care system to organise essential family information in one place.">
+
+  <meta name="description" content="A simple system to organise your parents' care, appointments, medications, important contacts and family responsibilities in one place.">
+
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:Arial,sans-serif;background:#f7f8fa;color:#172033;line-height:1.6}
-    .wrap{max-width:900px;margin:auto;padding:24px}
-    .hero{background:#132238;color:white;text-align:center;padding:60px 24px}
-    h1{font-size:42px;line-height:1.1;margin-bottom:18px}
-    h2{font-size:30px;margin-bottom:18px}
-    .hero p{font-size:20px;max-width:700px;margin:0 auto 26px}
-    .price{font-size:32px;font-weight:bold;margin:20px 0}
-    .btn{display:inline-block;background:#f2b84b;color:#172033;text-decoration:none;font-weight:bold;padding:17px 30px;border-radius:8px;font-size:18px}
-    section{padding:55px 20px}
-    .card{background:white;border-radius:12px;padding:28px;margin:18px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-    ul{padding-left:22px}
-    li{margin:10px 0}
-    .center{text-align:center}
-    .guarantee{background:#eaf4ef}
-    footer{text-align:center;padding:30px;color:#667085;font-size:14px}
-    @media(max-width:600px){
-      h1{font-size:34px}
-      h2{font-size:26px}
-      .hero{padding:45px 18px}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f7f8fa;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1000px;
+      margin: auto;
+      padding: 0 24px;
+    }
+
+    .hero {
+      background: #132238;
+      color: white;
+      text-align: center;
+      padding: 75px 20px;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 15px;
+    }
+
+    .hero .subtitle {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 22px;
+    }
+
+    .hero .description {
+      font-size: 20px;
+      max-width: 760px;
+      margin: 0 auto 28px;
+      color: #edf1f7;
+    }
+
+    .price {
+      font-size: 32px;
+      font-weight: bold;
+      margin: 20px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #f2b84b;
+      color: #172033;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 18px 32px;
+      border-radius: 8px;
+      font-size: 18px;
+      transition: .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .small {
+      font-size: 14px;
+      margin-top: 15px;
+      opacity: .85;
+    }
+
+    section {
+      padding: 65px 20px;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+
+    h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 16px;
+    }
+
+    .center {
+      text-align: center;
+    }
+
+    .intro {
+      max-width: 760px;
+      margin: auto;
+      font-size: 18px;
+    }
+
+    .light {
+      background: #ffffff;
+    }
+
+    .soft {
+      background: #eef3f7;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 4px 18px rgba(0,0,0,.07);
+    }
+
+    .number {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: #132238;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 16px;
+    }
+
+    .reset-box {
+      max-width: 760px;
+      margin: 35px auto 0;
+      background: #132238;
+      color: white;
+      border-radius: 14px;
+      padding: 35px;
+      text-align: center;
+    }
+
+    .reset-steps {
+      font-size: 22px;
+      font-weight: bold;
+      color: #f2b84b;
+      margin: 22px 0;
+    }
+
+    .guarantee {
+      background: #eaf4ef;
+    }
+
+    .guarantee-box {
+      max-width: 750px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .faq {
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .faq-item {
+      background: white;
+      padding: 24px;
+      margin: 15px 0;
+      border-radius: 10px;
+      box-shadow: 0 3px 12px rgba(0,0,0,.06);
+    }
+
+    .checkout {
+      background: #132238;
+      color: white;
+      text-align: center;
+    }
+
+    .checkout p {
+      max-width: 680px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      color: #667085;
+      font-size: 14px;
+      background: white;
+    }
+
+    @media (max-width: 700px) {
+      .hero {
+        padding: 55px 18px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .hero .subtitle {
+        font-size: 21px;
+      }
+
+      .hero .description {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 27px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 50px 16px;
+      }
+
+      .wrap {
+        padding: 0 10px;
+      }
     }
   </style>
 </head>
 
 <body>
 
-  <div class="hero">
+  <!-- HERO -->
+  <section class="hero">
     <div class="wrap">
+
       <h1>Family Command</h1>
-      <p><strong>The 15-Minute Family Care System</strong></p>
-      <p>A simple way to organise the essential information your family may need — without complicated systems or hours of planning.</p>
-      <div class="price">A$27 — One-Time Payment</div>
-      <a class="btn" href="#checkout">Get Instant Access</a>
-    </div>
-  </div>
 
-  <section>
-    <div class="wrap">
-      <h2 class="center">Bring Your Family Information Together</h2>
-
-      <div class="card">
-        <h2>Simple. Practical. Made for Real Families.</h2>
-        <p>Family Command gives you practical digital tools designed to help you organise important family information and make everyday planning easier.</p>
+      <div class="subtitle">
+        The 15-Minute Family Care System
       </div>
 
-      <div class="card">
-        <h2>Inside Family Command</h2>
-        <ul>
-          <li>Practical family organisation tools</li>
-          <li>Easy-to-follow planning resources</li>
-          <li>Important information organised in one place</li>
-          <li>A system designed to be simple to maintain</li>
-          <li>Digital access so you can start straight away</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>The 15-Minute Approach</h2>
-        <p>You don't need another complicated system. Family Command is designed around short, manageable steps so you can start organising what matters without feeling overwhelmed.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="guarantee">
-    <div class="wrap center">
-      <h2>14-Day Guarantee</h2>
-      <p>Try Family Command for 14 days. If it isn't right for you, contact us within the guarantee period according to the applicable refund terms.</p>
-    </div>
-  </section>
-
-  <section id="checkout">
-    <div class="wrap center">
-      <h2>Get Family Command Today</h2>
-      <p>One simple payment. Digital access.</p>
-      <div class="price">A$27</div>
-
-      <!-- LIVE STRIPE CHECKOUT LINK WILL BE ADDED HERE -->
-      <a class="btn" href="https://buy.stripe.com/eVq8wPaGQ3fs3E0eRfdZ600">Get Instant Access</a>
-
-      <p style="margin-top:18px;font-size:14px;">
-        Secure checkout is being activated.
+      <p class="description">
+        A simple way to organise your parents' care, appointments,
+        medications, important information and family responsibilities
+        — without keeping it all in your head.
       </p>
+
+      <div class="price">
+        A$27 AUD
+      </div>
+
+      <a class="btn" href="https://buy.stripe.com/eVq8wPaGQ3fs3E0eRfdZ600">
+        Get Instant Access
+      </a>
+
+      <p class="small">
+        One-time payment • Instant digital access • 14-day money-back guarantee
+      </p>
+
     </div>
   </section>
+
+
+  <!-- PROBLEM -->
+  <section class="light">
+    <div class="wrap">
+
+      <div class="center">
+        <h2>
+          Caring for Your Parents Shouldn't Mean Keeping Everything in Your Head
+        </h2>
+
+        <p class="intro">
+          Appointments. Medications. Phone numbers. Follow-ups.
+          Important dates. Family responsibilities.
+          When information is scattered across messages, notes and memory,
+          even simple things can become stressful.
+        </p>
+
+        <p class="intro">
+          Family Command gives your family one simple place to organise
+          what matters.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- SOLUTION -->
+  <section class="soft">
+    <div class="wrap">
+
+      <div class="center">
+        <h2>One Simple System. Less Mental Load.</h2>
+
+        <p class="intro">
+          Family Command isn't designed to give you more work.
+          It's designed to help you carry less of it in your head.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- WHAT YOU GET -->
+  <section class="light">
+    <div class="wrap">
+
+      <div class="center">
+        <h2>What You Get Inside Family Command</h2>
+
+        <p class="intro">
+          Everything you need to keep your parents' care organised
+          without relying on memory or scattered information.
+        </p>
+      </div>
+
+
+      <div class="cards">
+
+        <div class="card">
+          <div class="number">1</div>
+
+          <h3>Family Care Dashboard</h3>
+
+          <p>
+            Your central place to see what matters now,
+            what's coming up and what needs attention.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="number">2</div>
+
+          <h3>Appointments & Important Dates</h3>
+
+          <p>
+            Keep medical appointments, follow-ups and essential dates
+            organised in one easy place.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="number">3</div>
+
+          <h3>Medication & Care Tracker</h3>
+
+          <p>
+            Keep important medication and care information together,
+            so you're not searching through messages or relying on memory.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="number">4</div>
+
+          <h3>Important Contacts & Information</h3>
+
+          <p>
+            Doctors, pharmacies, family contacts and essential details
+            organised and easy to find when you need them.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="number">5</div>
+
+          <h3>Family Responsibility Planner</h3>
+
+          <p>
+            Make it clear who's handling what, helping reduce confusion,
+            repeated messages and the feeling that everything depends
+            on one person.
+          </p>
+        </div>
+
+
+        <div class="card">
+          <div class="number">6</div>
+
+          <h3>Weekly Care Checklist</h3>
+
+          <p>
+            A simple weekly checklist that helps you review what changed,
+            update important information and prepare for what's next.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 15 MINUTE RESET -->
+  <section class="soft">
+    <div class="wrap">
+
+      <div class="center">
+        <h2>The 15-Minute Family Reset</h2>
+
+        <p class="intro">
+          You don't need another complicated system.
+          Once a week, take a few minutes to bring everything back under control.
+        </p>
+      </div>
+
+
+      <div class="reset-box">
+
+        <h2>15 Minutes. Once a Week.</h2>
+
+        <div class="reset-steps">
+          Check → Update → Assign → Prepare
+        </div>
+
+        <p>
+          Check what happened. Update what changed.
+          Assign what needs to be handled.
+          Prepare for what's coming next.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- BENEFIT -->
+  <section class="light">
+    <div class="wrap">
+
+      <div class="center">
+
+        <h2>Know What's Happening Without Trying to Remember Everything</h2>
+
+        <p class="intro">
+          Instead of searching through messages, asking who handled what
+          or worrying that something important was forgotten,
+          your family has a simple system to return to.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- GUARANTEE -->
+  <section class="guarantee">
+    <div class="wrap">
+
+      <div class="guarantee-box">
+
+        <h2>14-Day Money-Back Guarantee</h2>
+
+        <p>
+          Try Family Command for 14 days.
+          If it isn't right for you, contact us within the guarantee period
+          according to the applicable refund terms.
+        </p>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section class="soft">
+    <div class="wrap">
+
+      <div class="center">
+        <h2>Frequently Asked Questions</h2>
+      </div>
+
+
+      <div class="faq">
+
+        <div class="faq-item">
+          <h3>Is Family Command a subscription?</h3>
+
+          <p>
+            No. Family Command is a one-time payment of A$27 AUD.
+          </p>
+        </div>
+
+
+        <div class="faq-item">
+          <h3>How do I receive it?</h3>
+
+          <p>
+            Family Command is a digital product.
+            After purchase, you'll receive digital access so you can get started.
+          </p>
+        </div>
+
+
+        <div class="faq-item">
+          <h3>Do I need to be good with technology?</h3>
+
+          <p>
+            No. The system is designed to be simple, practical
+            and easy to maintain.
+          </p>
+        </div>
+
+
+        <div class="faq-item">
+          <h3>Who is Family Command for?</h3>
+
+          <p>
+            It's designed for adults who help organise the care,
+            appointments and important information of ageing parents
+            and want a simpler way to keep the family coordinated.
+          </p>
+        </div>
+
+
+        <div class="faq-item">
+          <h3>What if Family Command isn't right for me?</h3>
+
+          <p>
+            Your purchase is covered by a 14-day money-back guarantee,
+            subject to the applicable refund terms.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- FINAL CHECKOUT -->
+  <section class="checkout" id="checkout">
+    <div class="wrap">
+
+      <h2>Get Family Command Today</h2>
+
+      <p>
+        Organise the information your family depends on
+        and make your weekly care planning simpler.
+      </p>
+
+      <div class="price">
+        A$27 AUD
+      </div>
+
+      <a class="btn" href="https://buy.stripe.com/eVq8wPaGQ3fs3E0eRfdZ600">
+        Get Family Command Now
+      </a>
+
+      <p class="small">
+        One-time payment • Instant digital access • 14-day money-back guarantee
+      </p>
+
+    </div>
+  </section>
+
 
   <footer>
     <p>Family Command — The 15-Minute Family Care System</p>
-    <p>Digital product • A$27 one-time payment • 14-day guarantee</p>
+    <p>Digital product • A$27 AUD one-time payment • 14-day guarantee</p>
   </footer>
 
 </body>
-  </html>
+        </html>
